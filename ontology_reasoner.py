@@ -157,28 +157,57 @@ def run_reasoner():
         print(f"  ❌ Inconsistency detected: {e}")
 
     print("\n[PHASE 4] Reverse Engineering to .logic Files ---------------")
+    
+    # Pre-calculate properties so we can assign them to domains during export
+    object_properties = list(onto.object_properties())
+    data_properties = list(onto.data_properties())
+
     def export_to_logic(filename, namespace_filter, is_upper=False):
         """
-        Exports OWL classes to a flat .logic file matching the OntoLogic syntax.
+        Exports OWL classes and their relationships/attributes to a flat .logic file.
         """
         with open(filename, 'w') as f:
             f.write(f"// Auto-generated Semantic Logic Export: {filename}\n")
             f.write("namespace factory\n\n")
             
             for cls in onto.classes():
-                # Naive filtering to categorize classes into the correct logic tier
-                # BFO (Upper) -> Plant Domains -> Specific App Domains
                 if is_upper and cls.__name__ in ["Entity", "Continuant", "MaterialEntity", "Occurrent", "Process", "Property", "Quality", "PressureQuality"]:
                     f.write(f"type {cls.__name__}\n")
                     for parent in cls.is_a:
                         if hasattr(parent, '__name__'):
                             f.write(f"  sub {parent.__name__}\n")
+                            
+                    # Export Object Properties as Relationships (`rel`)
+                    for op in object_properties:
+                        if cls in getattr(op, 'domain', []):
+                            ranges = getattr(op, 'range', [])
+                            if ranges:
+                                f.write(f"  rel {op.__name__} {ranges[0].__name__}\n")
+                                
+                    # Export Data Properties as Attributes (`has`)
+                    for dp in data_properties:
+                        if cls in getattr(dp, 'domain', []):
+                            f.write(f"  has {dp.__name__}\n")
+                            
                     f.write("\n")
-                elif cls.__name__ in namespace_filter and not is_upper:
+                elif not is_upper and cls.__name__ in namespace_filter:
                     f.write(f"type {cls.__name__}\n")
                     for parent in cls.is_a:
                         if hasattr(parent, '__name__') and parent.__name__ != "Thing":
                             f.write(f"  sub {parent.__name__}\n")
+                            
+                    # Export Object Properties as Relationships (`rel`)
+                    for op in object_properties:
+                        if cls in getattr(op, 'domain', []):
+                            ranges = getattr(op, 'range', [])
+                            if ranges:
+                                f.write(f"  rel {op.__name__} {ranges[0].__name__}\n")
+                                
+                    # Export Data Properties as Attributes (`has`)
+                    for dp in data_properties:
+                        if cls in getattr(dp, 'domain', []):
+                            f.write(f"  has {dp.__name__}\n")
+                            
                     f.write("\n")
                     
         print(f"  ✓ Exported {filename}")

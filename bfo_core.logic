@@ -9,6 +9,7 @@ type Continuant
 
 type MaterialEntity
   sub Continuant
+  rel measures Quality
 
 type Occurrent
   sub Entity
