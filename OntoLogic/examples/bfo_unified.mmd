@@ -1,0 +1,159 @@
+classDiagram
+    class Entity
+    class Continuant
+    class IndependentContinuant
+    class MaterialEntity
+    class Object
+    class ObjectAggregate
+    class GDC
+    class InformationContentEntity
+    class SDC
+    class Quality
+    class RealizableEntity
+    class Role
+    class Function
+    class Occurrent
+    class Process
+    class ProcessBoundary
+    class SpatiotemporalRegion
+    class Infrastructure
+    class Equipment
+    class Machine
+    class Sensor
+    class Robot
+    class WeldingRobot
+    class PaintingRobot
+    class AssemblyRobot
+    class Mixer
+    class Oven
+    class ProofingChamber
+    class CuttingMachine
+    class BaggingMachine
+    class PackagingMachine
+    class Refrigerator
+    class Product
+    class Pipeline
+    class Refinery
+    class OffshorePlatform
+    class Wellhead
+    class Pump
+    class Valve
+    class Compressor
+    class PLC
+    class PressureSensor
+    class TemperatureSensor
+    class VibrationSensor
+    class Scanner
+    class OpticalScanner
+    class LaserScanner
+    class BluewristScanner
+    class Substance
+    class Petroleum
+    class NaturalGas
+    class Water
+    class OperatorRole
+    class SafetyRole
+    class MaintenanceRole
+    class ManufacturingFunction
+    class PumpingFunction
+    class RefiningFunction
+    class SensingFunction
+    class WeldingFunction
+    class IndustrialProcess
+    class ManufacturingProcess
+    class AssemblyProcess
+    class WeldingProcess
+    class BakingProcess
+    class ExtractionProcess
+    class RefiningProcess
+    class TransportProcess
+    class MaintenanceProcess
+    class Software
+    class ControlLogic
+    class SensorData
+    class SafetyProtocol
+    class LimitBreachEvent
+    class FailureRisk
+    Entity <|-- Continuant
+    Continuant <|-- IndependentContinuant
+    IndependentContinuant <|-- MaterialEntity
+    MaterialEntity <|-- Object
+    MaterialEntity <|-- ObjectAggregate
+    Continuant <|-- GDC
+    GDC <|-- InformationContentEntity
+    Continuant <|-- SDC
+    SDC <|-- Quality
+    SDC <|-- RealizableEntity
+    RealizableEntity <|-- Role
+    RealizableEntity <|-- Function
+    Entity <|-- Occurrent
+    Occurrent <|-- Process
+    Occurrent <|-- ProcessBoundary
+    Occurrent <|-- SpatiotemporalRegion
+    Object <|-- Infrastructure
+    Object <|-- Equipment
+    Equipment <|-- Machine
+    Equipment <|-- Sensor
+    Machine <|-- Robot
+    Robot <|-- WeldingRobot
+    Robot <|-- PaintingRobot
+    Robot <|-- AssemblyRobot
+    Machine <|-- Mixer
+    Machine <|-- Oven
+    Machine <|-- ProofingChamber
+    Machine <|-- CuttingMachine
+    Machine <|-- BaggingMachine
+    Machine <|-- PackagingMachine
+    Machine <|-- Refrigerator
+    Object <|-- Product
+    Infrastructure <|-- Pipeline
+    Infrastructure <|-- Refinery
+    Infrastructure <|-- OffshorePlatform
+    Infrastructure <|-- Wellhead
+    Equipment <|-- Pump
+    Equipment <|-- Valve
+    Equipment <|-- Compressor
+    Equipment <|-- PLC
+    Sensor <|-- PressureSensor
+    Sensor <|-- TemperatureSensor
+    Sensor <|-- VibrationSensor
+    Equipment <|-- Scanner
+    Scanner <|-- OpticalScanner
+    Scanner <|-- LaserScanner
+    LaserScanner <|-- BluewristScanner
+    MaterialEntity <|-- Substance
+    Substance <|-- Petroleum
+    Substance <|-- NaturalGas
+    Substance <|-- Water
+    Role <|-- OperatorRole
+    Role <|-- SafetyRole
+    Role <|-- MaintenanceRole
+    Function <|-- ManufacturingFunction
+    Function <|-- PumpingFunction
+    Function <|-- RefiningFunction
+    Function <|-- SensingFunction
+    Function <|-- WeldingFunction
+    Process <|-- IndustrialProcess
+    IndustrialProcess <|-- ManufacturingProcess
+    ManufacturingProcess <|-- AssemblyProcess
+    ManufacturingProcess <|-- WeldingProcess
+    ManufacturingProcess <|-- BakingProcess
+    IndustrialProcess <|-- ExtractionProcess
+    IndustrialProcess <|-- RefiningProcess
+    IndustrialProcess <|-- TransportProcess
+    IndustrialProcess <|-- MaintenanceProcess
+    InformationContentEntity <|-- Software
+    Software <|-- ControlLogic
+    InformationContentEntity <|-- SensorData
+    InformationContentEntity <|-- SafetyProtocol
+    InformationContentEntity <|-- LimitBreachEvent
+    InformationContentEntity <|-- FailureRisk
+    Equipment : +Boolean is_active
+    Equipment : +Integer temperature
+    MaterialEntity : +Integer has_pressure
+    MaterialEntity : +Integer has_vibration_level
+    Pipeline : +Integer flow_rate
+    Mixer : +Integer rpm
+    PackagingMachine : +Integer items_per_minute
+    Scanner : +Boolean defect_detected
+    Scanner : +Integer scan_resolution_microns

@@ -1,0 +1,14 @@
+.stack-work/
+dist/
+dist-newstyle/
+*.o
+*.hi
+*.chi
+*.chs.h
+.gradle/
+build/
+!src/
+src/Main
+gradlew
+gradlew.bat
+gradle/

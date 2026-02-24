@@ -1,0 +1,47 @@
+name:                ontologic
+version:             1.0.0
+github:              "yourusername/ontologic"
+license:             BSD3
+author:              "OntoLogic Team"
+maintainer:          "example@example.com"
+copyright:           "2024 OntoLogic"
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+- containers
+- megaparsec
+- parser-combinators
+- optparse-applicative
+- directory
+- filepath
+- hashable
+- process
+
+library:
+  source-dirs: src
+
+executables:
+  ontologic-exe:
+    main:                Main.hs
+    source-dirs:         src
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - ontologic
+    - process
+
+tests:
+  ontologic-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - ontologic
+    - hspec
+    - megaparsec

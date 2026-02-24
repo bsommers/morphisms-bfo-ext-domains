@@ -1,0 +1,10 @@
+classDiagram
+    class IndustrialEntity
+    class Controller
+    class PLC
+    class RobotArm
+    IndustrialEntity <|-- Controller
+    Controller <|-- PLC
+    IndustrialEntity <|-- RobotArm
+    IndustrialEntity : +Boolean safety_status
+    RobotArm : +Integer axis_count

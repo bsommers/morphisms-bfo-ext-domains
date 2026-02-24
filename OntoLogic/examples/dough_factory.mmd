@@ -1,0 +1,30 @@
+classDiagram
+    class Asset
+    class Machine
+    class Sensor
+    class Mixer
+    class Oven
+    class ProofingChamber
+    class CuttingMachine
+    class BaggingMachine
+    class PackagingMachine
+    class Refrigerator
+    class Camera
+    class SecurityCamera
+    Asset <|-- Machine
+    Asset <|-- Sensor
+    Machine <|-- Mixer
+    Machine <|-- Oven
+    Machine <|-- ProofingChamber
+    Machine <|-- CuttingMachine
+    Machine <|-- BaggingMachine
+    Machine <|-- PackagingMachine
+    Machine <|-- Refrigerator
+    Sensor <|-- Camera
+    Camera <|-- SecurityCamera
+    Machine : +Boolean is_active
+    Machine : +Integer temperature
+    Machine : +Integer humidity
+    Mixer : +Integer rpm
+    Camera : +Boolean is_recording
+    PackagingMachine : +Integer items_per_minute

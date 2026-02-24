@@ -1,0 +1,10 @@
+IndustrialEntity: { shape: class }
+Controller: { shape: class }
+PLC: { shape: class }
+RobotArm: { shape: class }
+
+Controller -> IndustrialEntity
+PLC -> Controller
+RobotArm -> IndustrialEntity
+IndustrialEntity.safety_status: Boolean
+RobotArm.axis_count: Integer

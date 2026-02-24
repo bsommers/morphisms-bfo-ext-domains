@@ -1,0 +1,9 @@
+// Auto-generated Semantic Logic Export: domain_specific.logic
+namespace factory
+
+type PressureSensor
+  sub PlantSensor
+
+type CriticalBoiler
+  sub Boiler
+

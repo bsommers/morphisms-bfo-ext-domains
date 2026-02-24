@@ -1,0 +1,59 @@
+classDiagram
+    class Entity
+    class Continuant
+    class IndependentContinuant
+    class MaterialEntity
+    class Object
+    class GDC
+    class InformationContentEntity
+    class SDC
+    class Quality
+    class RealizableEntity
+    class Role
+    class Function
+    class Occurrent
+    class Process
+    class ProcessBoundary
+    class SpatiotemporalRegion
+    class Machine
+    class Robot
+    class Product
+    class ManufacturingProcess
+    class AssemblyProcess
+    class WeldingProcess
+    class OperatorRole
+    class SafetyRole
+    class Software
+    class ControlLogic
+    class WeldingFunction
+    Entity <|-- Continuant
+    Continuant <|-- IndependentContinuant
+    IndependentContinuant <|-- MaterialEntity
+    MaterialEntity <|-- Object
+    Continuant <|-- GDC
+    GDC <|-- InformationContentEntity
+    Continuant <|-- SDC
+    SDC <|-- Quality
+    SDC <|-- RealizableEntity
+    RealizableEntity <|-- Role
+    RealizableEntity <|-- Function
+    Entity <|-- Occurrent
+    Occurrent <|-- Process
+    Occurrent <|-- ProcessBoundary
+    Occurrent <|-- SpatiotemporalRegion
+    Object <|-- Machine
+    Machine <|-- Robot
+    Object <|-- Product
+    Process <|-- ManufacturingProcess
+    ManufacturingProcess <|-- AssemblyProcess
+    ManufacturingProcess <|-- WeldingProcess
+    Role <|-- OperatorRole
+    Role <|-- SafetyRole
+    InformationContentEntity <|-- Software
+    Software <|-- ControlLogic
+    Function <|-- WeldingFunction
+    Object : +String participates_in
+    Object : +String has_quality
+    Object : +String realizes
+    Process : +Integer duration
+    ManufacturingProcess : +Boolean is_running

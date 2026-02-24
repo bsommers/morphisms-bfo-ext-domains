@@ -1,0 +1,18 @@
+// Auto-generated Semantic Logic Export: bfo_extension_plant.logic
+namespace factory
+
+type PlantEntity
+  sub MaterialEntity
+
+type PlantEquipment
+  sub PlantEntity
+
+type Boiler
+  sub PlantEquipment
+
+type Pump
+  sub PlantEquipment
+
+type PlantSensor
+  sub PlantEntity
+

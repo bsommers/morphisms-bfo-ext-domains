@@ -1,0 +1,47 @@
+classDiagram
+    class Asset
+    class Vehicle
+    class SUV
+    class Sedan
+    class Truck
+    class Equipment
+    class Station
+    class Robot
+    class WeldingRobot
+    class PaintingRobot
+    class AssemblyRobot
+    class Scanner
+    class OpticalScanner
+    class LaserScanner
+    class BluewristScanner
+    class SafetySystem
+    class LightCurtain
+    Asset <|-- Vehicle
+    Vehicle <|-- SUV
+    Vehicle <|-- Sedan
+    Vehicle <|-- Truck
+    Asset <|-- Equipment
+    Equipment <|-- Station
+    Equipment <|-- Robot
+    Robot <|-- WeldingRobot
+    Robot <|-- PaintingRobot
+    Robot <|-- AssemblyRobot
+    Equipment <|-- Scanner
+    Scanner <|-- OpticalScanner
+    Scanner <|-- LaserScanner
+    LaserScanner <|-- BluewristScanner
+    Equipment <|-- SafetySystem
+    SafetySystem <|-- LightCurtain
+    Vehicle : +String vin
+    Vehicle : +Integer model_year
+    Vehicle : +Integer weld_count
+    Vehicle : +Boolean is_painted
+    Vehicle : +Boolean is_quality_approved
+    Vehicle : +String paint_color
+    Station : +String station_id
+    Equipment : +Boolean is_active
+    Equipment : +Integer temperature
+    Robot : +String current_job
+    Scanner : +Boolean defect_detected
+    Scanner : +Integer scan_resolution_microns
+    SafetySystem : +Boolean barrier_active

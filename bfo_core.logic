@@ -1,0 +1,27 @@
+// Auto-generated Semantic Logic Export: bfo_core.logic
+namespace factory
+
+type Entity
+  sub Thing
+
+type Continuant
+  sub Entity
+
+type MaterialEntity
+  sub Continuant
+
+type Occurrent
+  sub Entity
+
+type Process
+  sub Occurrent
+
+type Property
+  sub Thing
+
+type Quality
+  sub Property
+
+type PressureQuality
+  sub Quality
+

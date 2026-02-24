@@ -1,0 +1,67 @@
+classDiagram
+    class Entity
+    class Continuant
+    class IndependentContinuant
+    class MaterialEntity
+    class Object
+    class Occurrent
+    class Process
+    class Role
+    class Function
+    class InformationContentEntity
+    class MiningEquipment
+    class HeavyMachinery
+    class Excavator
+    class HaulTruck
+    class DrillRig
+    class Crusher
+    class ConveyorBelt
+    class Sensor
+    class LoadSensor
+    class VibrationSensor
+    class GasSensor
+    class MiningProcess
+    class ExtractionProcess
+    class BlastingProcess
+    class HaulingProcess
+    class CrushingProcess
+    class TelemetryData
+    class ProductionReport
+    class SafetyAlert
+    class OperatorRole
+    class SafetyOfficerRole
+    Entity <|-- Continuant
+    Continuant <|-- IndependentContinuant
+    IndependentContinuant <|-- MaterialEntity
+    MaterialEntity <|-- Object
+    Entity <|-- Occurrent
+    Occurrent <|-- Process
+    Continuant <|-- Role
+    Continuant <|-- Function
+    Continuant <|-- InformationContentEntity
+    Object <|-- MiningEquipment
+    MiningEquipment <|-- HeavyMachinery
+    HeavyMachinery <|-- Excavator
+    HeavyMachinery <|-- HaulTruck
+    HeavyMachinery <|-- DrillRig
+    MiningEquipment <|-- Crusher
+    MiningEquipment <|-- ConveyorBelt
+    Object <|-- Sensor
+    Sensor <|-- LoadSensor
+    Sensor <|-- VibrationSensor
+    Sensor <|-- GasSensor
+    Process <|-- MiningProcess
+    MiningProcess <|-- ExtractionProcess
+    MiningProcess <|-- BlastingProcess
+    MiningProcess <|-- HaulingProcess
+    MiningProcess <|-- CrushingProcess
+    InformationContentEntity <|-- TelemetryData
+    InformationContentEntity <|-- ProductionReport
+    InformationContentEntity <|-- SafetyAlert
+    Role <|-- OperatorRole
+    Role <|-- SafetyOfficerRole
+    HaulTruck : +Integer payload_weight
+    HeavyMachinery : +Integer engine_temp
+    Crusher : +Integer vibration_level
+    GasSensor : +Integer methane_level
+    HeavyMachinery : +Boolean is_autonomous
